@@ -3,7 +3,7 @@ import { ServerSocketService } from './server-socket.service';
 import { OnEvent } from '@nestjs/event-emitter';
 import { Server } from 'socket.io';
 
-@WebSocketGateway({ namespace: '/api/gateway/webhook' })
+@WebSocketGateway({ transports: ['polling'], namespace: '/api/gateway/webhook' })
 export class ServerSocketGateway {
   constructor(private readonly serverSocketService: ServerSocketService) { }
 
